@@ -14,6 +14,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "dracula.nvim": {
+      "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
+      "src": "https://github.com/Mofiqul/dracula.nvim"
+    },
     "fidget.nvim": {
       "rev": "9e0201673e08e997e7cf52afca5565c70bd117f3",
       "src": "https://github.com/j-hui/fidget.nvim"
