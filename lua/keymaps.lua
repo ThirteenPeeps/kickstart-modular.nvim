@@ -61,10 +61,17 @@ vim.keymap.set('n', '<C-Down>', '<C-w><C-j>', { desc = 'Move focus to the lower 
 vim.keymap.set('n', '<C-Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
+-- NOTE: cosmic-term is one such terminal, since it uses C-S for split navigation already
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+-- At least we can include arrow keys for C-w moves:
+vim.keymap.set('n', '<C-w><Left>', '<C-w>H', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-w><Right>', '<C-w>L', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-w><Down>', '<C-w>J', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-w><Up>', '<C-w>K', { desc = 'Move focus to the upper window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
