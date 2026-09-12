@@ -73,6 +73,12 @@ vim.keymap.set('n', '<C-w><Right>', '<C-w>L', { desc = 'Move focus to the right 
 vim.keymap.set('n', '<C-w><Down>', '<C-w>J', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-w><Up>', '<C-w>K', { desc = 'Move focus to the upper window' })
 
+-- Insert mode: ctrl+arrows use words, shift+arrows WORDS, for parity with Fish
+vim.keymap.set('i', '<C-Left>', '<C-o>b', { desc = 'Move backward one word' })
+vim.keymap.set('i', '<C-Right>', '<C-o>w', { desc = 'Move forward one word' })
+vim.keymap.set('i', '<S-Left>', '<C-o>B', { desc = 'Move backward one WORD' })
+vim.keymap.set('i', '<S-Right>', '<C-o>W', { desc = 'Move forward one WORD' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
