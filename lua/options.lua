@@ -84,4 +84,7 @@ vim.o.confirm = true
 -- Draw margin at specified column number(s)
 vim.opt.colorcolumn = { 80, 120 }
 
+-- Don't skip over _ when traversing words, for parity with Fish
+vim.opt.iskeyword:remove '_'
+
 -- vim: ts=2 sts=2 sw=2 et
