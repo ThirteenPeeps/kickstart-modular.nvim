@@ -26,6 +26,7 @@ require 'kickstart.plugins.treesitter'
 require 'kickstart.plugins.indent_line'
 -- require 'kickstart.plugins.lint'
 require 'kickstart.plugins.autopairs'
+require 'custom.plugins.window-picker' -- optional dependency for neo-tree
 require 'kickstart.plugins.neo-tree'
 
 -- NOTE: You can add your own plugins, configuration, etc. in `lua/custom/plugins/*.lua`.
