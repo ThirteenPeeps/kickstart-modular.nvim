@@ -49,4 +49,22 @@ statusline.section_location = function() return '%2l:%-2v' end
 -- ... and there is more!
 --  Check out: https://github.com/nvim-mini/mini.nvim
 
+require('mini.align').setup()
+require('mini.comment').setup()
+require('mini.splitjoin').setup()
+require('mini.basics').setup({
+  options = {
+    extra_ui = true,
+  },
+
+  mappings = {
+    option_toggle_prefix = [[,]],
+    move_with_alt = true,
+  },
+
+  autocommands = {
+    relnum_in_visual_mode = true,
+  },
+})
+
 -- vim: ts=2 sts=2 sw=2 et
