@@ -78,9 +78,9 @@ require('mini.animate').setup({
 })
 require('mini.map').setup({
   integrations = {
+    require('mini.map').gen_integration.diagnostic(),
     require('mini.map').gen_integration.builtin_search(),
     require('mini.map').gen_integration.gitsigns(),
-    require('mini.map').gen_integration.diagnostic(),
   },
   symbols = {
     encode = require('mini.map').gen_encode_symbols.dot('4x2'),
