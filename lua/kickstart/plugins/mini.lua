@@ -56,15 +56,51 @@ require('mini.basics').setup({
   options = {
     extra_ui = true,
   },
-
   mappings = {
     option_toggle_prefix = [[,]],
     move_with_alt = true,
   },
-
   autocommands = {
     relnum_in_visual_mode = true,
   },
 })
+require('mini.bracketed').setup()
+require('mini.bufremove').setup()
+require('mini.jump').setup()
+require('mini.jump2d').setup()
+require('mini.sessions').setup({
+  autoread = true,
+})
+require('mini.animate').setup({
+  cursor = {
+    enable = false,
+  },
+})
+require('mini.map').setup({
+  integrations = {
+    require('mini.map').gen_integration.builtin_search(),
+    require('mini.map').gen_integration.gitsigns(),
+    require('mini.map').gen_integration.diagnostic(),
+  },
+  symbols = {
+    encode = require('mini.map').gen_encode_symbols.dot('4x2'),
+  },
+})
+
+-- Define a which-key group if which-key is present
+local ok, wk = pcall(require, "which-key")
+if ok then
+  wk.add({
+    { "<leader>m", group = "[M]iniMap" },
+  })
+end
+
+vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = '[M]iniMap [f]ocus toggle' })
+vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, {desc = '[M]iniMap [r]efresh' })
+vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, {desc = '[M]iniMap [s]ide toggle' })
+vim.keymap.set('n', '<Leader>mt', MiniMap.toggle, { desc = '[M]iniMap [t]oggle' })
+
+require('mini.statuscolumn').setup()
+require('mini.tabline').setup()
 
 -- vim: ts=2 sts=2 sw=2 et
