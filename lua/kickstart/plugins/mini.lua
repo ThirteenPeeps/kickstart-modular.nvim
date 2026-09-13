@@ -1,7 +1,7 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
--- Helper func for conditionally adding which-key groups provided
--- which-key is actually available
+-- Helper func for conditionally adding which-key groups,
+-- provided which-key is actually available
 local function try_wk_add(keys, desc)
   local ok, wk = pcall(require, "which-key")
   if ok then
@@ -81,7 +81,7 @@ require('mini.bracketed').setup()
 require('mini.bufremove').setup()
 try_wk_add('<Leader>b', 'Mini[B]ufremove')
 vim.keymap.set('n', '<Leader>bd', MiniBufremove.delete, { desc = '[B]uffer [d]elete' })
-vim.keymap.set('n', '<Leader>bu', MiniBufremove.unshow, { desc = '[B]uffer [u]nshow' })
+vim.keymap.set('n', '<Leader>bu', MiniBufremove.unshow, { desc = 'Mini [B]uffer [u]nshow' })
 
 require('mini.jump').setup()
 require('mini.jump2d').setup()
