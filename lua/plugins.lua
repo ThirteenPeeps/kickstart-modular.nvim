@@ -42,5 +42,6 @@ require 'kickstart.plugins.neo-tree'
 -- require 'custom.plugins.colorscheme'
 -- require 'custom.plugins.ui'
 -- require 'custom.plugins.git'
+require 'custom.plugins.render-markdown'
 
 -- vim: ts=2 sts=2 sw=2 et
