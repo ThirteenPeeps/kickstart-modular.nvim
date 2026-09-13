@@ -100,7 +100,15 @@ vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, {desc = '[M]iniMap [r]efresh'
 vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, {desc = '[M]iniMap [s]ide toggle' })
 vim.keymap.set('n', '<Leader>mt', MiniMap.toggle, { desc = '[M]iniMap [t]oggle' })
 
-require('mini.statuscolumn').setup()
+local statuscolumn = require('mini.statuscolumn')
+local spec = {
+    { format = 'fs=l', sep = ' ' },
+    { ltype = 'virt', lnum = '•' },
+    { ltype = 'wrap', lnum = '↳' },
+    { win = 'inactive', sep = ' ' },
+}
+statuscolumn.setup({ content = statuscolumn.gen_content.main(spec) })
+
 require('mini.tabline').setup()
 
 -- vim: ts=2 sts=2 sw=2 et
