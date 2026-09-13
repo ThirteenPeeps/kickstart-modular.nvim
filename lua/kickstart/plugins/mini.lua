@@ -1,5 +1,16 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
+-- Helper func for conditionally adding which-key groups provided
+-- which-key is actually available
+local function try_wk_add(keys, desc)
+  local ok, wk = pcall(require, "which-key")
+  if ok then
+    wk.add({
+      { keys, group = desc },
+    })
+  end
+end
+
 -- [[ mini.nvim ]]
 --  A collection of various small independent plugins/modules
 vim.pack.add { gh 'nvim-mini/mini.nvim' }
@@ -64,18 +75,27 @@ require('mini.basics').setup({
     relnum_in_visual_mode = true,
   },
 })
+
 require('mini.bracketed').setup()
+
 require('mini.bufremove').setup()
+try_wk_add('<Leader>b', 'Mini[B]ufremove')
+vim.keymap.set('n', '<Leader>bd', MiniBufremove.delete, { desc = '[B]uffer [d]elete' })
+vim.keymap.set('n', '<Leader>bu', MiniBufremove.unshow, { desc = '[B]uffer [u]nshow' })
+
 require('mini.jump').setup()
 require('mini.jump2d').setup()
+
 require('mini.sessions').setup({
   autoread = true,
 })
+
 require('mini.animate').setup({
   cursor = {
     enable = false,
   },
 })
+
 require('mini.map').setup({
   integrations = {
     require('mini.map').gen_integration.diagnostic(),
@@ -86,15 +106,7 @@ require('mini.map').setup({
     encode = require('mini.map').gen_encode_symbols.dot('4x2'),
   },
 })
-
--- Define a which-key group if which-key is present
-local ok, wk = pcall(require, "which-key")
-if ok then
-  wk.add({
-    { "<leader>m", group = "[M]iniMap" },
-  })
-end
-
+try_wk_add('<leader>m', '[M]iniMap')
 vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = '[M]iniMap [f]ocus toggle' })
 vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, {desc = '[M]iniMap [r]efresh' })
 vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, {desc = '[M]iniMap [s]ide toggle' })
