@@ -88,9 +88,10 @@ require('mini.jump2d').setup()
 
 require('mini.sessions').setup({
   autoread = true,
-  -- Ensure Neotree is closed before writing session
+  -- Ensure Neotree is closed before writing session and opened after reading
   hooks = {
-    pre = { write = function() pcall(vim.cmd('Neotree close')) end }
+    pre = { write = function() pcall(vim.cmd('Neotree close')) end },
+    post = { read = function() pcall(vim.cmd('Neotree reveal')) end },
   },
 })
 
