@@ -88,6 +88,10 @@ require('mini.jump2d').setup()
 
 require('mini.sessions').setup({
   autoread = true,
+  -- Ensure Neotree is closed before writing session
+  hooks = {
+    pre = { write = function() pcall(vim.cmd('Neotree close')) end }
+  },
 })
 
 require('mini.animate').setup({
