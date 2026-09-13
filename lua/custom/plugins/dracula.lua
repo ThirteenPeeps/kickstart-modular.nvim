@@ -14,6 +14,10 @@ require('dracula').setup {
     CursorLineNr = { bold = true, fg = colors.white, bg = colors.bg },
     CursorLine = { bg = colors.menu },
     ColorColumn = { bg = colors.menu },
+    MiniTablineCurrent = { bold = true, fg = colors.white, bg = colors.menu },
+    MiniTablineModifiedCurrent = { bold = true, italic = true, fg = colors.white, bg = colors.menu },
+    MiniTablineModifiedVisible = { italic = true, fg = colors.white, bg = colors.bg },
+    MiniTablineModifiedHidden = { italic = true, fg = colors.comment, bg = colors.bg },
   }
   end,
 }
